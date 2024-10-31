@@ -1,0 +1,555 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Photos Flickr</title>
+<link rel="stylesheet" href="http://dannyman.toldme.com/wp-content/themes/dtc3/style.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body>
+
+<p><a name="__index__"></a></p>
+<!-- INDEX BEGIN -->
+
+<ul>
+
+	<li><a href="#photos_flickr">Photos Flickr</a></li>
+	<ul>
+
+		<li><a href="#pretty_functions">PRETTY FUNCTIONS</a></li>
+		<ul>
+
+			<li><a href="#photos_photo_index__"><code>photos_photo_index()</code></a></li>
+			<li><a href="#photos_photo_pageindex__"><code>photos_photo_pageindex()</code></a></li>
+			<li><a href="#photos_photoset_index__"><code>photos_photoset_index()</code></a></li>
+		</ul>
+
+		<li><a href="#general_functions">GENERAL FUNCTIONS</a></li>
+		<ul>
+
+			<li><a href="#photos_init__"><code>photos_init()</code></a></li>
+			<li><a href="#photos_photo_index_href__"><code>photos_photo_index_href()</code></a></li>
+			<li><a href="#photos_photoset_index_href__"><code>photos_photoset_index_href()</code></a></li>
+			<li><a href="#photos_is_photo__"><code>photos_is_photo()</code></a></li>
+			<li><a href="#photos_is_index__"><code>photos_is_index()</code></a></li>
+			<li><a href="#photos_is_photoset__"><code>photos_is_photoset()</code></a></li>
+			<li><a href="#photos_is_tag__"><code>photos_is_tag()</code></a></li>
+		</ul>
+
+		<li><a href="#general_functions__photos_photo_">GENERAL FUNCTIONS: photos_photo_</a></li>
+		<ul>
+
+			<li><a href="#photos_photo_description__"><code>photos_photo_description()</code></a></li>
+			<li><a href="#photos_photo_href__"><code>photos_photo_href()</code></a></li>
+			<li><a href="#photos_photo_title__"><code>photos_photo_title()</code></a></li>
+			<li><a href="#photos_photo_url__"><code>photos_photo_url()</code></a></li>
+			<li><a href="#photos_photo_photosets__"><code>photos_photo_photosets()</code></a></li>
+			<li><a href="#photos_photo_tags__"><code>photos_photo_tags()</code></a></li>
+			<li><a href="#photos_photo_photoset_list__"><code>photos_photo_photoset_list()</code></a></li>
+			<li><a href="#photos_photo_tag_list__"><code>photos_photo_tag_list()</code></a></li>
+			<li><a href="#photos_photo_page_url__"><code>photos_photo_page_url()</code></a></li>
+			<li><a href="#photos_photo_date_taken__"><code>photos_photo_date_taken()</code></a></li>
+			<li><a href="#photos_photo_next_img__"><code>photos_photo_next_img()</code></a></li>
+			<li><a href="#photos_photo_prev_img__"><code>photos_photo_prev_img()</code></a></li>
+			<li><a href="#photos_photo_next_href__"><code>photos_photo_next_href()</code></a></li>
+			<li><a href="#photos_photo_prev_href__"><code>photos_photo_prev_href()</code></a></li>
+			<li><a href="#photos_photo_next_title__"><code>photos_photo_next_title()</code></a></li>
+			<li><a href="#photos_photo_prev_title__"><code>photos_photo_prev_title()</code></a></li>
+		</ul>
+
+		<li><a href="#general_functions__photos_photosets_">GENERAL FUNCTIONS: photos_photosets_</a></li>
+		<ul>
+
+			<li><a href="#photos_photoset_list__"><code>photos_photoset_list()</code></a></li>
+			<li><a href="#photos_photoset_description__"><code>photos_photoset_description()</code></a></li>
+			<li><a href="#photos_photoset_href__"><code>photos_photoset_href()</code></a></li>
+			<li><a href="#photos_photoset_title__"><code>photos_photoset_title()</code></a></li>
+			<li><a href="#photos_photoset_img__"><code>photos_photoset_img()</code></a></li>
+			<li><a href="#photos_photoset_next_img__"><code>photos_photoset_next_img()</code></a></li>
+			<li><a href="#photos_photoset_prev_img__"><code>photos_photoset_prev_img()</code></a></li>
+			<li><a href="#photos_photoset_next_href__"><code>photos_photoset_next_href()</code></a></li>
+			<li><a href="#photos_photoset_prev_href__"><code>photos_photoset_prev_href()</code></a></li>
+			<li><a href="#photos_photoset_next_title__"><code>photos_photoset_next_title()</code></a></li>
+			<li><a href="#photos_photoset_prev_title__"><code>photos_photoset_prev_title()</code></a></li>
+		</ul>
+
+		<li><a href="#private_functions">PRIVATE FUNCTIONS</a></li>
+		<ul>
+
+			<li><a href="#private__photos_init_phpflickr__">PRIVATE: <code>photos_init_phpFlickr()</code></a></li>
+			<li><a href="#private__photos_config_page__">PRIVATE: <code>photos_config_page()</code></a></li>
+			<li><a href="#private__get_flickr_user__">PRIVATE: <code>get_flickr_user()</code></a></li>
+			<li><a href="#private__photos_flickr_config_page__">PRIVATE: <code>photos_flickr_config_page()</code></a></li>
+			<li><a href="#private__photos_private_img__">PRIVATE: <code>photos_private_img()</code></a></li>
+			<li><a href="#private__photos_private_getcontext__">PRIVATE: <code>photos_private_getContext()</code></a></li>
+			<li><a href="#private__whine__">PRIVATE: <code>whine()</code></a></li>
+		</ul>
+
+		<li><a href="#obsoleted_functions">OBSOLETED FUNCTIONS</a></li>
+		<ul>
+
+			<li><a href="#obsoleted__photos_index__">OBSOLETED: <code>photos_index()</code></a></li>
+			<li><a href="#obsoleted__photos_pageindex__">OBSOLETED: <code>photos_pageindex()</code></a></li>
+			<li><a href="#obsoleted__photos_index_href__">OBSOLETED: <code>photos_index_href()</code></a></li>
+			<li><a href="#obsoleted__photos_photo_next_img__">OBSOLETED: <code>photos_photo_next_img()</code></a></li>
+			<li><a href="#obsoleted__photos_photo_prev_img__">OBSOLETED: <code>photos_photo_prev_img()</code></a></li>
+			<li><a href="#obsoleted__photos_photoset_url__">OBSOLETED: <code>photos_photoset_url()</code></a></li>
+		</ul>
+
+	</ul>
+
+</ul>
+<!-- INDEX END -->
+
+<hr />
+<p>
+</p>
+<h1><a name="photos_flickr">Photos Flickr</a></h1>
+<pre>
+    Plugin Name:    Photos Flickr
+    Plugin URI:     <a href="http://dannyman.toldme.com/photos-flickr/">http://dannyman.toldme.com/photos-flickr/</a></pre>
+<pre>
+    Author:         Danny Howard
+    Author URI:     <a href="http://dannyman.toldme.com/">http://dannyman.toldme.com/</a></pre>
+<pre>
+    Description:    Photos Flickr is a development version of a plugin
+    that I am writing for WordPress blog software to display a user's
+    Flickr photos within their blog.</pre>
+<pre>
+    Version:        0.7.1</pre>
+<p>So . . . what have we here?</p>
+<p><strong>Pretty</strong> functions are probably the most interesting -- they do the
+heavy lifting of printing, say, an index page ...</p>
+<p><strong>General</strong> functions are the ``worker ants'' which you may call
+directly, or are in turn used by the <strong>pretty</strong> functions to get things
+done.  They come in two flavors of name: <code>photos_photo_</code> and
+<code>photos_photoset_</code> depending on whether they are meant to service photo
+pages or photoset pages.</p>
+<p><strong>Private</strong> functions are documented for completeness, and for my own
+sanity.  These may be changed at any time.  You are welcome to use
+these, but be warned that you are voiding the warranty, and might get
+spanked by a future version.</p>
+<p><em>Don't use private functions unless you really know what you are
+doing.</em></p>
+<p><strong>Obsoleted</strong> functions are functions that are no longer supported.  A
+good many are just old names for functions that have been renamed.
+These are sparingly documented for completeness, and to reassure you
+that you're not as insane as your friends claim.</p>
+<p><em>Don't use obsoleted functions unless you really really know what you
+are doing!</em></p>
+<p>
+</p>
+<h2><a name="pretty_functions">PRETTY FUNCTIONS</a></h2>
+<p>Top-level functions that implement serious magic and generate copious
+HTML.</p>
+<p>
+</p>
+<h3><a name="photos_photo_index__"><code>photos_photo_index()</code></a></h3>
+<p>Print a reasonable photo index.</p>
+<p>Consults the context in which the page was called, and will print only
+photos from a photoset or tag, if appropriate.  Otherwise, you get the
+whole photostream.</p>
+<p><strong>The semantics of this function changed substantially in 0.8!</strong></p>
+<pre>
+ Arguments:
+    $num_per_page       = number of photos to print per page
+    $num_per_row        = number of photos to print between $row_sep
+    $page               = what page number we are printing
+    
+    $img_size           = what size image to print
+    $img_before         = what to print before IMG
+    $img_after          = what to print after IMG</pre>
+<pre>
+    $row_sep            = what to print between rows
+    
+    $photo_before       = what to print before each photo
+    $photo_after        = what to print after each photo
+    
+    $print_title        = print title?
+    $title_before       = what to print before title
+    $title_after        = what to print after title
+    
+    $print_description  = print description?
+    $description_before = what to print before description
+    $description_after  = what to print after description</pre>
+<p>You'll end up with a page of photos, and each photo looks something
+like:</p>
+<pre>
+ $photo_before
+  $title_before         PHOTO TITLE         $title_after
+  $img_before           PHOTO IMG TAG       $img_after
+  $description_before   PHOTO DESCRIPTION   $description_after
+ $photo_after</pre>
+<p>For $print_description, if you pass an integer, the description will
+truncated after $print_description characters.</p>
+<p>
+</p>
+<h3><a name="photos_photo_pageindex__"><code>photos_photo_pageindex()</code></a></h3>
+<p>Prints a ``pagination'' doohickey.</p>
+<pre>
+ Arguments:
+    $context            = number of adjoining pages to print links to
+    $item_sep           = what to put between page links
+    $dotdotdot          = what to put between page link sets
+    $page               = what page are we on, anyway?</pre>
+<p>A call like this:</p>
+<pre>
+ &lt;?php photos_photo_pageindex(1, ', ', ' . . . ', 5); ?&gt;</pre>
+<p>Might produce something like this:</p>
+<p>1, 2 . . . 4, <strong>5</strong>, 6 . . . 68, 69</p>
+<p>
+</p>
+<h3><a name="photos_photoset_index__"><code>photos_photoset_index()</code></a></h3>
+<p>Print a reasonable photoset index.</p>
+<pre>
+ Arguments:
+    $num_per_row        = number of sets to print between $row_sep
+    $row_sep            = what to print between rows
+    
+    $print_thumb        = print thumbnail?  Unless NULL, what kind?
+    $print_title        = print title?
+    $print_count        = print count?
+    
+    $photoset_before    = what to print before photoset
+    $photoset_after     = what to print after photoset
+    
+    $thumb_before       = what to print before thumbnail
+    $thumb_after        = what to print after thumbnail
+    
+    $title_before       = what to print before title
+    $title_after        = what to print after title
+    
+    $count_before       = what to print before count
+    $count_after        = what to print after count</pre>
+<p>You'll end up with a page of photosets, and each photoset looks
+something like:</p>
+<pre>
+ $photoset_before
+  $thumb_before PHOTOSET IMG THUMBNAIL  $thumb_after
+  $title_before PHOTOSET TITLE          $title_after
+  $count_before PHOTOSET COUNT          $count_after
+ $photoset_after</pre>
+<p>
+</p>
+<h2><a name="general_functions">GENERAL FUNCTIONS</a></h2>
+<p>
+</p>
+<h3><a name="photos_init__"><code>photos_init()</code></a></h3>
+<pre>
+ MANDATORY call once before you call other stuff:
+ * Connects to Flickr, setting up phpFlickr handle ($f)
+ * Connects to cache database
+ * Sets up $person and $nsid for our convenience
+ * Sets up $photos_base_url appropriately</pre>
+<p>TODO: If we are hooking in to WordPress' <code>init()</code> then this should check
+to see if we're actually doing any photos before it goes pinging Flickr
+and setting up a database connection, huh?</p>
+<p>
+</p>
+<h3><a name="photos_photo_index_href__"><code>photos_photo_index_href()</code></a></h3>
+<p>Print a link to a photo index page.</p>
+<p>
+</p>
+<h3><a name="photos_photoset_index_href__"><code>photos_photoset_index_href()</code></a></h3>
+<p>Print a link to a photoset index page.</p>
+<p>
+</p>
+<h3><a name="photos_is_photo__"><code>photos_is_photo()</code></a></h3>
+<p>Are we a page for one photo, or some nav index?</p>
+<p>Returns Flickr photo ID of current photo.</p>
+<p>Returns false if there is no photo.</p>
+<p>
+</p>
+<h3><a name="photos_is_index__"><code>photos_is_index()</code></a></h3>
+<p>Are we an index page?  If so, what flavor?</p>
+<p>Unless we are an <code>photos_is_photo()</code> will return ``index'' or ``photoset''</p>
+<p>Returns false if we are not an index.</p>
+<p>If we are not a photo or an index, we might be a photoset page, or a tag
+page ...</p>
+<p>
+</p>
+<h3><a name="photos_is_photoset__"><code>photos_is_photoset()</code></a></h3>
+<p>Returns ID of current photoset, else false.</p>
+<p>
+</p>
+<h3><a name="photos_is_tag__"><code>photos_is_tag()</code></a></h3>
+<p>Returns value of current tag, else false.</p>
+<p>
+</p>
+<h2><a name="general_functions__photos_photo_">GENERAL FUNCTIONS: photos_photo_</a></h2>
+<pre>
+ TODO: photos_photo_list();
+ photos_photo_description();
+ photos_photo_href();
+ photos_photo_title();
+ photos_photo_img();
+  
+ photos_photo_photoset_list();
+ photos_photo_tag_list();</pre>
+<p>You can pass a photo ID to any of these functions.  Otherwise, they'll
+default to the current photo.</p>
+<p>
+</p>
+<h3><a name="photos_photo_description__"><code>photos_photo_description()</code></a></h3>
+<p>Print photo description.</p>
+<p>
+</p>
+<h3><a name="photos_photo_href__"><code>photos_photo_href()</code></a></h3>
+<p>Print Photos Flickr URL of photo page for $photo_id.</p>
+<p>
+</p>
+<h3><a name="photos_photo_title__"><code>photos_photo_title()</code></a></h3>
+<p>Print photo description.</p>
+<p>
+</p>
+<h3><a name="photos_photo_url__"><code>photos_photo_url()</code></a></h3>
+<p>Print a Flickr IMG link to photo.</p>
+<p>
+</p>
+<h3><a name="photos_photo_photosets__"><code>photos_photo_photosets()</code></a></h3>
+<p>Print linked photosets for a photo.</p>
+<p>
+</p>
+<h3><a name="photos_photo_tags__"><code>photos_photo_tags()</code></a></h3>
+<p>Print a linked list of tags for a photo.</p>
+<p>
+</p>
+<h3><a name="photos_photo_photoset_list__"><code>photos_photo_photoset_list()</code></a></h3>
+<p>Returns a PHP list of photosets associated with photo.</p>
+<p>Returns False if no photosets.  (So you could use it as a boolean
+check.)</p>
+<p>
+</p>
+<h3><a name="photos_photo_tag_list__"><code>photos_photo_tag_list()</code></a></h3>
+<p>Returns a PHP list of tags associated with photo.</p>
+<p>Returns False if no tags.  (So you could use it as a boolean check.)</p>
+<p>
+</p>
+<h3><a name="photos_photo_page_url__"><code>photos_photo_page_url()</code></a></h3>
+<p>Print a link to Flickr photo page</p>
+<p>
+</p>
+<h3><a name="photos_photo_date_taken__"><code>photos_photo_date_taken()</code></a></h3>
+<p>Print the date photo was taken.</p>
+<p>Accepts $date_format as second argument -- a format string for PHP's
+<code>date()</code> function.  If this is not supplied, the WordPress <strong>date_format</strong>
+option will be checked.</p>
+<p>See: <a href="http://www.php.net/date">http://www.php.net/date</a></p>
+<p>Example:</p>
+<pre>
+ photos_photo_date_taken(NULL, 'Y-m-d, H\hi');</pre>
+<p>(The first argument is the photo ID.  NULL means to default to current
+photo.)</p>
+<p>Would print something like:</p>
+<p>2007-06-25, 15h58</p>
+<p>
+</p>
+<h3><a name="photos_photo_next_img__"><code>photos_photo_next_img()</code></a></h3>
+<p>Print IMG link for next photo in stream.</p>
+<p>Accepts Flickr image size type as first argument: defaults to ``square''</p>
+<p>
+</p>
+<h3><a name="photos_photo_prev_img__"><code>photos_photo_prev_img()</code></a></h3>
+<p>Print IMG link for previous photo in stream.</p>
+<p>Accepts Flickr image size type as first argument: defaults to ``square''</p>
+<p>
+</p>
+<h3><a name="photos_photo_next_href__"><code>photos_photo_next_href()</code></a></h3>
+<p>Print link to Photos Flickr page for next photo in stream.</p>
+<p>
+</p>
+<h3><a name="photos_photo_prev_href__"><code>photos_photo_prev_href()</code></a></h3>
+<p>Print link to Photos Flickr page for previous photo in stream.</p>
+<p>
+</p>
+<h3><a name="photos_photo_next_title__"><code>photos_photo_next_title()</code></a></h3>
+<p>Print title of next photo in stream.</p>
+<p>
+</p>
+<h3><a name="photos_photo_prev_title__"><code>photos_photo_prev_title()</code></a></h3>
+<p>Print title of previous photo in stream.</p>
+<p>
+</p>
+<h2><a name="general_functions__photos_photosets_">GENERAL FUNCTIONS: photos_photosets_</a></h2>
+<pre>
+ photos_photoset_list();
+ photos_photoset_description();
+ photos_photoset_href();
+ photos_photoset_title();
+ photos_photoset_img();</pre>
+<p>These functions generally accept at least one argument: $photoset_id,
+which is the ID of a Flickr photoset.</p>
+<p>
+</p>
+<h3><a name="photos_photoset_list__"><code>photos_photoset_list()</code></a></h3>
+<p>Return a list of photosets associated with $photo_id.</p>
+<p>Defaults to returning a list of all sets for user.</p>
+<p>Returns False if no photosets.</p>
+<p>
+</p>
+<h3><a name="photos_photoset_description__"><code>photos_photoset_description()</code></a></h3>
+<p>Print description of $photoset_id.</p>
+<p>
+</p>
+<h3><a name="photos_photoset_href__"><code>photos_photoset_href()</code></a></h3>
+<p>Print Photos Flickr URL of photoset page for $photoset_id.</p>
+<p>
+</p>
+<h3><a name="photos_photoset_title__"><code>photos_photoset_title()</code></a></h3>
+<p>Print Title of $photoset_id.</p>
+<p>
+</p>
+<h3><a name="photos_photoset_img__"><code>photos_photoset_img()</code></a></h3>
+<p>Print primary image URL of $photoset_id.</p>
+<p>
+</p>
+<h3><a name="photos_photoset_next_img__"><code>photos_photoset_next_img()</code></a></h3>
+<p>Print IMG link for next photo in photoset.</p>
+<pre>
+ Arguments:
+    $photoset_id    = Flickr ID of photoset
+    $thumb_type     = Flickr image size for &quot;thumbnail&quot;
+    $photo_id       = Flickr ID of photo</pre>
+<p>$photoset_id and $photo_id default to current values.</p>
+<p>Accepts Flickr image size type as second argument: defaults to ``square''</p>
+<p>
+</p>
+<h3><a name="photos_photoset_prev_img__"><code>photos_photoset_prev_img()</code></a></h3>
+<p>Print IMG link for previous photo in photoset.</p>
+<pre>
+ Arguments:
+    $photoset_id    = Flickr ID of photoset
+    $thumb_type     = Flickr image size for &quot;thumbnail&quot;
+    $photo_id       = Flickr ID of photo</pre>
+<p>$photoset_id and $photo_id default to current values.</p>
+<p>Accepts Flickr image size type as second argument: defaults to ``square''</p>
+<p>
+</p>
+<h3><a name="photos_photoset_next_href__"><code>photos_photoset_next_href()</code></a></h3>
+<p>Print link to Photos Flickr page for next photo in photoset.</p>
+<pre>
+ Arguments:
+    $photoset_id    = Flickr ID of photoset
+    $photo_id       = Flickr ID of photo</pre>
+<p>$photoset_id and $photo_id default to current values.</p>
+<p>
+</p>
+<h3><a name="photos_photoset_prev_href__"><code>photos_photoset_prev_href()</code></a></h3>
+<p>Print link to Photos Flickr page for previous photo in photoset.</p>
+<pre>
+ Arguments:
+    $photoset_id    = Flickr ID of photoset
+    $photo_id       = Flickr ID of photo</pre>
+<p>$photoset_id and $photo_id default to current values.</p>
+<p>
+</p>
+<h3><a name="photos_photoset_next_title__"><code>photos_photoset_next_title()</code></a></h3>
+<p>Print title of next photo in photoset.</p>
+<pre>
+ Arguments:
+    $photoset_id    = Flickr ID of photoset
+    $photo_id       = Flickr ID of photo</pre>
+<p>$photoset_id and $photo_id default to current values.</p>
+<p>
+</p>
+<h3><a name="photos_photoset_prev_title__"><code>photos_photoset_prev_title()</code></a></h3>
+<p>Print title of previous photo in photoset.</p>
+<pre>
+ Arguments:
+    $photoset_id    = Flickr ID of photoset
+    $photo_id       = Flickr ID of photo</pre>
+<p>$photoset_id and $photo_id default to current values.</p>
+<p>
+</p>
+<h2><a name="private_functions">PRIVATE FUNCTIONS</a></h2>
+<p>
+</p>
+<h3><a name="private__photos_init_phpflickr__">PRIVATE: <code>photos_init_phpFlickr()</code></a></h3>
+<p>Connects to Flickr, setting up $f</p>
+<p>
+</p>
+<h3><a name="private__photos_config_page__">PRIVATE: <code>photos_config_page()</code></a></h3>
+<p>Hooks into WordPress Admin menu to manage options and whatnot.</p>
+<p>
+</p>
+<h3><a name="private__get_flickr_user__">PRIVATE: <code>get_flickr_user()</code></a></h3>
+<p>Private function to map NSID, username, or e-mail to $flickr_user, which
+will be an NSID.</p>
+<p>Meant to be called by <code>photos_init()</code> as a convenience and also by the
+Admin panel as a sanity-check.</p>
+<p>Returns a $person ... I think.</p>
+<p>
+</p>
+<h3><a name="private__photos_flickr_config_page__">PRIVATE: <code>photos_flickr_config_page()</code></a></h3>
+<p>Displays the actual administrative configuration page.  Byagh!</p>
+<p>
+</p>
+<h3><a name="private__photos_private_img__">PRIVATE: <code>photos_private_img()</code></a></h3>
+<p>Return an IMG tag for a photo.</p>
+<pre>
+ Arguments:
+    $photo  =   $photo object -- defaults to
+                $f-&gt;photos_getInfo($GLOBAL['photo_id'])
+    $size   =   One of: square, thumbnail, small, medium, large,
+                original</pre>
+<p>If we don't have a $photo available, we can:</p>
+<pre>
+ $f = global $f;
+ $photo = $f-&gt;photos_getInfo($photo_id);
+ photos_private_img($photo, 'medium');</pre>
+<p>
+</p>
+<h3><a name="private__photos_private_getcontext__">PRIVATE: <code>photos_private_getContext()</code></a></h3>
+<p>``MASTER'' function for:
+<code>photos_(photo|photoset)_(next|prev)_(href|img|title)</code></p>
+<pre>
+ Arguments:
+    $context    = (photo|photoset)
+    $nl         = (next|prev)
+    $attr       = (href|url|title)
+    $photo_id   = photo ID for context
+    $context_id = set ID for context
+    $thumb_type = thumbnail type for img</pre>
+<p>We call it $context_id in the hope that we could one day give context
+for, say, tags ...</p>
+<p>
+</p>
+<h3><a name="private__whine__">PRIVATE: <code>whine()</code></a></h3>
+<p>Collect debug messages, emitting them in an apropriate manner, if
+appropriate.</p>
+<p>
+</p>
+<h2><a name="obsoleted_functions">OBSOLETED FUNCTIONS</a></h2>
+<p>Backwards-compatability is fun!</p>
+<p>
+</p>
+<h3><a name="obsoleted__photos_index__">OBSOLETED: <code>photos_index()</code></a></h3>
+<p>Obsoleted -- passes through to photos_photo_index().</p>
+<p>
+</p>
+<h3><a name="obsoleted__photos_pageindex__">OBSOLETED: <code>photos_pageindex()</code></a></h3>
+<p>Obsoleted -- passes through to photos_photo_pageindex().</p>
+<p>
+</p>
+<h3><a name="obsoleted__photos_index_href__">OBSOLETED: <code>photos_index_href()</code></a></h3>
+<p>Obsoleted.</p>
+<p>
+</p>
+<h3><a name="obsoleted__photos_photo_next_img__">OBSOLETED: <code>photos_photo_next_img()</code></a></h3>
+<p>Print IMG link for next photo in stream.</p>
+<p>Accepts Flickr image size type as first argument: defaults to ``square''</p>
+<p>
+</p>
+<h3><a name="obsoleted__photos_photo_prev_img__">OBSOLETED: <code>photos_photo_prev_img()</code></a></h3>
+<p>Print IMG link for previous photo in stream.</p>
+<p>Accepts Flickr image size type as first argument: defaults to ``square''</p>
+<p>
+</p>
+<h3><a name="obsoleted__photos_photoset_url__">OBSOLETED: <code>photos_photoset_url()</code></a></h3>
+<p>Print primary image URL of $photoset_id.  (OBSOLETED)</p>
+
+</body>
+
+</html>
